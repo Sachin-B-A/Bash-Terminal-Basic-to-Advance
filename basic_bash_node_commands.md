@@ -1,10 +1,10 @@
+---
 
-# Basic Bash, Terminal, and Node Commands
+### **Basic Bash and Terminal Commands**
 
-## WSL Commands (Windows Subsystem for Linux):
-
+#### **WSL Commands (Windows Subsystem for Linux)**
 1. **`pwd`**  
-   *Print Working Directory*: Displays the current directory you're in.
+   *Print Working Directory*: Displays the current directory.
    ```bash
    pwd
    ```
@@ -15,63 +15,82 @@
    ```bash
    cd desktop/Coding
    ```
-
-   - To go back one level, use:  
-   ```bash
-   cd ..
-   ```
-
-   - To go back two levels:  
-   ```bash
-   cd ../..
-   ```
+   - To go back one level:
+     ```bash
+     cd ..
+     ```
+   - To go back two levels:
+     ```bash
+     cd ../..
+     ```
 
 3. **`ls`**  
-   *List*: Lists all files and directories in the current directory.
+   *List*: Lists all files and directories.
    ```bash
    ls
    ```
+   - **Variations**:
+     - `ls -l`: Detailed list view.
+     - `ls -r`: Reverse order listing.
+     - `ls -t`: Sort by time last modified.
+     - `ls -lt`: Combine detailed list and time sorting.
+     - `ls -la`: List all, including hidden files.
+     - `ls -s`: Sort by file size.
+     - `ls -lR | grep .json`: Find files with a particular format.
 
 4. **`mkdir`**  
    *Make Directory*: Creates a new directory.  
    Example:
    ```bash
-   mkdir myFolder
+   mkdir newdir
    ```
 
 5. **`touch`**  
-   *Create a File*: Creates a new file.
+   *Create a File*: Creates a new file.  
+   Example:
    ```bash
    touch filename.txt
    ```
 
 6. **`cat`**  
-   *Concatenate and Display*: Displays the content of a file.
-   ```bash
-   cat filename.txt
-   ```
-
-7. **Edit using Vim Editor:**
-   - Open a file with `vim`:  
+   *Concatenate and Display*: Displays file content.  
+   - To overwrite file content:
      ```bash
-     vim filename.txt
+     cat > text.txt
+     ```
+   - To append to a file:
+     ```bash
+     cat >> text.txt
      ```
 
-   - To enter **Insert Mode** (to edit the file), press:  
-     `i`
-
-   - To exit without saving:  
-     Press `esc` and type `:q!`
-
-   - To save changes and exit:  
-     Press `esc` and type `:wq!`
+7. **Vim Editor**  
+   - Open a file with Vim:
+     ```bash
+     vim hi.txt
+     ```
+   - To enter **Insert Mode**, press:
+     ```bash
+     i
+     ```
+   - To exit without saving, press `esc` and type:
+     ```bash
+     :q!
+     ```
+   - To save and exit, press `esc` and type:
+     ```bash
+     :wq!
+     ```
 
 8. **`mv`**  
    *Move or Rename a File*:  
-   Example (Move `hello.txt` to `hellofolder`):
-   ```bash
-   mv hello.txt hellofolder/
-   ```
+   - Move a file to a folder:
+     ```bash
+     mv hello.txt hellofolder/
+     ```
+   - Rename a file:
+     ```bash
+     mv hello.txt renamed.txt
+     ```
 
 9. **`cp`**  
    *Copy Files*:  
@@ -79,49 +98,117 @@
    ```bash
    cp hello.txt hello/
    ```
-
-   - To copy directories (including all contents), use the `-r` flag:  
-     Example (Copy `demo` directory one level up):
+   - To copy directories (recursively):
      ```bash
      cp -r demo ../
      ```
 
+10. **`rm`**  
+    *Remove/Delete Files*:
+    ```bash
+    rm hello.txt
+    ```
+    - To delete a directory and its contents:
+      ```bash
+      rm -r hello/
+      ```
+
 ---
 
-## Node.js Commands
+### **Node.js Commands**
 
 1. **`node`**  
-   Starts the Node.js interactive shell (REPL). You can execute JavaScript code directly.
+   Start the Node.js interactive shell (REPL).
    ```bash
    node
    ```
 
 2. **Running JavaScript Files**  
-   Execute a JavaScript file using Node.js.
+   Run a JavaScript file using Node.js:
    ```bash
-   node filename.js
+   node a.js
    ```
 
-3. **Using Vim to Write and Run Code**  
-   You can write your JavaScript code in a file using Vim and run it with Node.js:
-   - Open a file with `vim`:
-     ```bash
-     vim a.js
-     ```
-   - Insert your code and save the file, then run:
-     ```bash
-     node a.js
-     ```
-
-4. **`npm` (Node Package Manager)**  
-   Manages project dependencies from the npm registry.
-
-   - To list installed packages in your project:
+3. **`npm` (Node Package Manager)**  
+   - List installed packages:
      ```bash
      npm list
      ```
-
-   - For a list of all possible npm commands, simply run:
+   - To see all available `npm` commands:
      ```bash
      npm
      ```
+
+---
+
+### **Advanced Bash Commands**
+
+1. **Chaining Commands**  
+   Combine multiple commands in one line.
+   ```bash
+   mkdir newdir && cd newdir
+   ```
+
+2. **File Permissions with `chmod`**  
+   Change file permissions:
+   ```bash
+   chmod ugo-rwx filename
+   ```
+   - `ugo`: User, Group, Others.
+   - `rwx`: Read, Write, Execute.
+
+   Examples:
+   - Grant execute permission to the user:
+     ```bash
+     chmod u+x NewFolder.txt
+     ```
+   - Allow user to write and execute:
+     ```bash
+     chmod u+wx NewFolder.txt
+     ```
+   - Remove write and execute permissions from user:
+     ```bash
+     chmod u-wx NewFolder.txt
+     ```
+   - Give full permissions (read, write, execute) to everyone:
+     ```bash
+     chmod 777 NewFolder.txt
+     ```
+
+3. **`echo`**  
+   Display a message:
+   ```bash
+   echo "Hello World"
+   ```
+
+4. **Viewing File Content**  
+   - Display the first 10 lines of a file:
+     ```bash
+     head hello.txt
+     ```
+   - Display the last 10 lines of a file:
+     ```bash
+     tail hello.txt
+     ```
+   - Display the first 20 lines of a file:
+     ```bash
+     head -20 hello.txt
+     ```
+
+5. **Word Count with `wc`**  
+   Count the number of lines in a file:
+   ```bash
+   wc -l hello.txt
+   ```
+
+6. **Command Chaining**  
+   Chain commands together using `|`:
+   ```bash
+   grep "Yess" hellotext.txt | wc -l
+   ```
+   - To search for a word (case-insensitive):
+     ```bash
+     grep -hi "Yess" hellotext.txt
+     ```
+
+---
