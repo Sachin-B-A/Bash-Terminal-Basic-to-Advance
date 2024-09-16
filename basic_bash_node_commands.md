@@ -1,5 +1,3 @@
----
-
 ### **Basic Bash and Terminal Commands**
 
 #### **WSL Commands (Windows Subsystem for Linux)**
@@ -210,5 +208,3 @@
      ```bash
      grep -hi "Yess" hellotext.txt
      ```
-
----
